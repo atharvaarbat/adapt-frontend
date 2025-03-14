@@ -180,7 +180,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       </div>
       
       {/* Chat Messages */}
-      <div className="flex-1 p-4 overflow-y-auto">
+      <div className="h-[calc(100vh_-_15rem)] p-4 overflow-y-auto">
         <div className="space-y-4">
           {messages.map(message => (
             <div

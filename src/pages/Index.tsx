@@ -5,6 +5,7 @@ import MapView from '@/components/MapView';
 import ActionButtons from '@/components/ActionButtons';
 import { Location, Route, ThreatZone, Priority } from '@/types';
 import { toast } from '@/components/ui/use-toast';
+import RouteView from '@/components/RouteView';
 
 const Index = () => {
   const [pointA, setPointA] = useState<Location | null>(null);
@@ -196,22 +197,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-convoy-lightGray">
       <div className="container mx-auto p-4 md:p-6">
-        {/* Header */}
-        {/* <div className="mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-convoy-darkBlue mb-2 animate-fade-in">Convoy Route Planner</h1>
-          <p className="text-convoy-gray max-w-2xl mx-auto animate-slide-up">
-            Advanced route planning system optimized for military and security convoys
-          </p>
-        </div> */}
-        
         {/* Action Buttons */}
-        <div className="mb-6 animate-slide-up">
+        {/* <div className="mb-6 animate-slide-up">
           <ActionButtons
             onClearChat={handleClearChat}
             onDownloadRoute={handleDownloadRoute}
             onFeedback={handleFeedback}
           />
-        </div>
+        </div> */}
         
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-110px)] min-h-[500px]">
@@ -232,21 +225,51 @@ const Index = () => {
           
           {/* Map View */}
           <div className="h-full animate-slide-in">
-            <MapView
-              pointA={pointA}
-              pointB={pointB}
-              routes={routes}
-              threatZones={threatZones}
-              selectedRouteId={selectedRouteId}
-              onMapReady={() => setIsMapReady(true)}
-            />
+           
+            <RouteView response={{
+                "route": [
+                    [
+                        19,
+                        "Village S",
+                        "2024-07-08",
+                        2,
+                        "Village",
+                        [
+                            100,
+                            110
+                        ],
+                        6
+                    ],
+                    [
+                        18,
+                        "Bridge R",
+                        "2024-06-25",
+                        1,
+                        "Bridge",
+                        [
+                            95,
+                            105
+                        ],
+                        10
+                    ],
+                    [
+                        20,
+                        "City T",
+                        "2024-08-13",
+                        1,
+                        "City",
+                        [
+                            105,
+                            115
+                        ],
+                        1
+                    ]
+                ],
+                "total_cost": 1100257
+            }}/>
           </div>
         </div>
         
-        {/* Footer */}
-        {/* <div className="mt-6 text-center text-sm text-convoy-gray animate-fade-in">
-          <p>© 2023 Convoy Planner • Security-focused route planning system</p>
-        </div> */}
       </div>
     </div>
   );
