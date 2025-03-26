@@ -5,6 +5,7 @@ import SliderInput from './components/SliderInput';
 import RouteViewer from './components/RouteViewer';
 import ChatInput from './components/ChatInput';
 import { processNavigationCommand } from './services/aiService';
+import GraphVisualization from './components/GraphVis';
 // Mock data for locations
 const LOCATIONS = [
   { "id": 1, "name": "Village A" },
@@ -333,6 +334,8 @@ function App() {
           )}
         </div>
       </div>
+
+      <GraphVisualization/>
     </div>
   );
 }
